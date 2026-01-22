@@ -1,0 +1,70 @@
+PS C:\Users\ptuser\Downloads> nmap -sC -sV -T4 --script ssl* -p- -Pn 192.168.5.25
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-01-22 00:07 -0500
+Stats: 0:01:23 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 56.82% done; ETC: 00:10 (0:01:03 remaining)
+Nmap scan report for 192.168.5.25
+Host is up (0.0062s latency).
+Not shown: 65409 filtered tcp ports (no-response), 114 filtered tcp ports (admin-prohibited)
+PORT      STATE  SERVICE         VERSION
+22/tcp    open   ssh             OpenSSH 8.0 (protocol 2.0)
+113/tcp   closed ident
+2000/tcp  open   cisco-sccp?
+2812/tcp  open   tcpwrapped
+5060/tcp  open   sip?
+8000/tcp  open   http            Uvicorn
+|_http-server-header: uvicorn
+8093/tcp  open   http            Werkzeug httpd 3.1.3 (Python 3.9.20)
+|_http-server-header: Werkzeug/3.1.3 Python/3.9.20
+9090/tcp  open   ssl/http        Cockpit web service 282 or later
+| ssl-cert: Subject: commonName=bxnmaster02/organizationName=d951428b35d84387a20272e74989482a/countryName=US
+| Subject Alternative Name: DNS:bxnmaster02, DNS:localhost, IP Address:127.0.0.1
+| Issuer: commonName=bxnmaster02/organizationName=d951428b35d84387a20272e74989482a/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-02-17T18:47:15
+| Not valid after:  2026-03-19T18:47:15
+| MD5:     7c46 70b8 96de f11c 96c5 dac9 5a9a b4d1
+| SHA-1:   3709 a183 d712 4d96 fa8f 21ce c073 d305 601f 5cc4
+|_SHA-256: b32c 834d 370a 5b06 c452 e8ba dcf2 1f3c 3c96 ed7e ceb5 4a5a c781 ffc4 691f e973
+|_ssl-date: TLS randomness does not represent time
+| ssl-enum-ciphers:
+|   TLSv1.2:
+|     ciphers:
+|       TLS_DHE_RSA_WITH_AES_128_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_CCM (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CBC_SHA (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_CCM (dh 2048) - A
+|       TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (dh 2048) - A
+|       TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (dh 2048) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (secp256r1) - A
+|       TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A
+|       TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_CCM (rsa 2048) - A
+|       TLS_RSA_WITH_AES_128_GCM_SHA256 (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_CCM (rsa 2048) - A
+|       TLS_RSA_WITH_AES_256_GCM_SHA384 (rsa 2048) - A
+|     compressors:
+|       NULL
+|     cipher preference: client
+|   TLSv1.3:
+|     ciphers:
+|       TLS_AKE_WITH_AES_128_CCM_SHA256 (secp256r1) - A
+|       TLS_AKE_WITH_AES_128_GCM_SHA256 (secp256r1) - A
+|       TLS_AKE_WITH_AES_256_GCM_SHA384 (secp256r1) - A
+|       TLS_AKE_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A
+|     cipher preference: client
+|_  least strength: A
+9833/tcp  closed unknown
+22351/tcp closed codemeter-cmwan
+22352/tcp closed unknown
+22360/tcp closed unknown
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 330.95 seconds
