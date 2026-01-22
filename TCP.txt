@@ -1,0 +1,19 @@
+C:\Users\ptuser\Downloads>nmap -sT -p- -Pn 192.168.5.25
+Nmap scan report for 192.168.5.25
+Host is up (0.0055s latency).
+Not shown: 65523 filtered tcp ports (no-response)
+PORT      STATE  SERVICE
+22/tcp    open   ssh
+113/tcp   closed ident
+2000/tcp  open   cisco-sccp
+2812/tcp  open   atmtcp
+5060/tcp  open   sip
+8000/tcp  open   http-alt
+8093/tcp  open   unknown
+9090/tcp  open   zeus-admin
+9833/tcp  closed unknown
+22351/tcp closed codemeter-cmwan
+22352/tcp closed unknown
+22360/tcp closed unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 2088.50 seconds
