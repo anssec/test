@@ -1,0 +1,118 @@
+ptuser@DEV-PC06:~/ssh-audit$ python3 ssh-audit.py 192.168.5.18
+# general
+(gen) banner: SSH-2.0-OpenSSH_8.0
+(gen) software: OpenSSH 8.0
+(gen) compatibility: OpenSSH 7.4+ (some functionality from 6.6), Dropbear SSH 2020.79+
+(gen) compression: enabled (zlib@openssh.com)
+
+# key exchange algorithms
+(kex) curve25519-sha256                     -- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 7.4, Dropbear SSH 2018.76
+                                            `- [info] default key exchange from OpenSSH 7.4 to 8.9
+(kex) curve25519-sha256@libssh.org          -- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 6.4, Dropbear SSH 2013.62
+                                            `- [info] default key exchange from OpenSSH 6.5 to 7.3
+(kex) ecdh-sha2-nistp256                    -- [fail] using elliptic curves that are suspected as being backdoored by the U.S. National Security Agency
+                                            `- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 5.7, Dropbear SSH 2013.62
+(kex) ecdh-sha2-nistp384                    -- [fail] using elliptic curves that are suspected as being backdoored by the U.S. National Security Agency
+                                            `- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 5.7, Dropbear SSH 2013.62
+(kex) ecdh-sha2-nistp521                    -- [fail] using elliptic curves that are suspected as being backdoored by the U.S. National Security Agency
+                                            `- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 5.7, Dropbear SSH 2013.62
+(kex) diffie-hellman-group-exchange-sha256 (3072-bit) -- [warn] does not provide protection against post-quantum attacks
+                                                      `- [info] available since OpenSSH 4.4
+                                                      `- [info] OpenSSH's GEX fallback mechanism was triggered during testing. Very old SSH clients will still be able to create connections using a 2048-bit modulus, though modern clients will use 3072. This can only be disabled by recompiling the code (see https://github.com/openssh/openssh-portable/blob/V_9_4/dh.c#L477).
+(kex) diffie-hellman-group14-sha256         -- [warn] 2048-bit modulus only provides 112-bits of symmetric strength
+                                            `- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 7.3, Dropbear SSH 2016.73
+(kex) diffie-hellman-group16-sha512         -- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 7.3, Dropbear SSH 2016.73
+(kex) diffie-hellman-group18-sha512         -- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 7.3
+(kex) diffie-hellman-group-exchange-sha1 (3072-bit) -- [fail] using broken SHA-1 hash algorithm
+                                                    `- [warn] does not provide protection against post-quantum attacks
+                                                    `- [info] available since OpenSSH 2.3.0
+                                                    `- [info] OpenSSH's GEX fallback mechanism was triggered during testing. Very old SSH clients will still be able to create connections using a 2048-bit modulus, though modern clients will use 3072. This can only be disabled by recompiling the code (see https://github.com/openssh/openssh-portable/blob/V_9_4/dh.c#L477).
+(kex) diffie-hellman-group14-sha1           -- [fail] using broken SHA-1 hash algorithm
+                                            `- [warn] 2048-bit modulus only provides 112-bits of symmetric strength
+                                            `- [warn] does not provide protection against post-quantum attacks
+                                            `- [info] available since OpenSSH 3.9, Dropbear SSH 0.53
+(kex) kex-strict-s-v00@openssh.com          -- [info] pseudo-algorithm that denotes the peer supports a stricter key exchange method as a counter-measure to the Terrapin attack (CVE-2023-48795)
+
+# host-key algorithms
+(key) rsa-sha2-512 (3072-bit)               -- [info] available since OpenSSH 7.2
+(key) rsa-sha2-256 (3072-bit)               -- [info] available since OpenSSH 7.2, Dropbear SSH 2020.79
+(key) ssh-rsa (3072-bit)                    -- [fail] using broken SHA-1 hash algorithm
+                                            `- [info] available since OpenSSH 2.5.0, Dropbear SSH 0.28
+                                            `- [info] deprecated in OpenSSH 8.8: https://www.openssh.com/txt/release-8.8
+(key) ecdsa-sha2-nistp256                   -- [fail] using elliptic curves that are suspected as being backdoored by the U.S. National Security Agency
+                                            `- [warn] using weak random number generator could reveal the key
+                                            `- [info] available since OpenSSH 5.7, Dropbear SSH 2013.62
+(key) ssh-ed25519                           -- [info] available since OpenSSH 6.5, Dropbear SSH 2020.79
+
+# encryption algorithms (ciphers)
+(enc) aes256-gcm@openssh.com                -- [info] available since OpenSSH 6.2
+(enc) chacha20-poly1305@openssh.com         -- [info] available since OpenSSH 6.5, Dropbear SSH 2020.79
+                                            `- [info] default cipher since OpenSSH 6.9
+(enc) aes256-ctr                            -- [info] available since OpenSSH 3.7, Dropbear SSH 0.52
+(enc) aes256-cbc                            -- [warn] using weak cipher mode
+                                            `- [info] available since OpenSSH 2.3.0, Dropbear SSH 0.47
+(enc) aes128-gcm@openssh.com                -- [info] available since OpenSSH 6.2
+(enc) aes128-ctr                            -- [info] available since OpenSSH 3.7, Dropbear SSH 0.52
+(enc) aes128-cbc                            -- [warn] using weak cipher mode
+                                            `- [info] available since OpenSSH 2.3.0, Dropbear SSH 0.28
+(enc) 3des-cbc                              -- [fail] using broken & deprecated 3DES cipher
+                                            `- [warn] using weak cipher mode
+                                            `- [warn] using small 64-bit block size
+                                            `- [info] available since OpenSSH 1.2.2, Dropbear SSH 0.28
+
+# message authentication code algorithms
+(mac) hmac-sha2-256-etm@openssh.com         -- [info] available since OpenSSH 6.2
+(mac) hmac-sha1-etm@openssh.com             -- [fail] using broken SHA-1 hash algorithm
+                                            `- [info] available since OpenSSH 6.2
+(mac) umac-128-etm@openssh.com              -- [info] available since OpenSSH 6.2
+(mac) hmac-sha2-512-etm@openssh.com         -- [info] available since OpenSSH 6.2
+(mac) hmac-sha2-256                         -- [warn] using encrypt-and-MAC mode
+                                            `- [info] available since OpenSSH 5.9, Dropbear SSH 2013.56
+(mac) hmac-sha1                             -- [fail] using broken SHA-1 hash algorithm
+                                            `- [warn] using encrypt-and-MAC mode
+                                            `- [info] available since OpenSSH 2.1.0, Dropbear SSH 0.28
+(mac) umac-128@openssh.com                  -- [warn] using encrypt-and-MAC mode
+                                            `- [info] available since OpenSSH 6.2
+(mac) hmac-sha2-512                         -- [warn] using encrypt-and-MAC mode
+                                            `- [info] available since OpenSSH 5.9, Dropbear SSH 2013.56
+
+# fingerprints
+(fin) ssh-ed25519: SHA256:Myc+xkD5iWtBxvKbP0wR4eee9wi5Y+OIQD9rlgJJxYc
+(fin) ssh-rsa: SHA256:oiwIitj2UQBEt1z6e73fT/IT5DEGAGoC+QaC6DxKaeI
+
+# algorithm recommendations (for OpenSSH 8.0)
+(rec) -3des-cbc                             -- enc algorithm to remove
+(rec) -diffie-hellman-group-exchange-sha1   -- kex algorithm to remove
+(rec) -diffie-hellman-group14-sha1          -- kex algorithm to remove
+(rec) -ecdh-sha2-nistp256                   -- kex algorithm to remove
+(rec) -ecdh-sha2-nistp384                   -- kex algorithm to remove
+(rec) -ecdh-sha2-nistp521                   -- kex algorithm to remove
+(rec) -ecdsa-sha2-nistp256                  -- key algorithm to remove
+(rec) -hmac-sha1                            -- mac algorithm to remove
+(rec) -hmac-sha1-etm@openssh.com            -- mac algorithm to remove
+(rec) -ssh-rsa                              -- key algorithm to remove
+(rec) +aes192-ctr                           -- enc algorithm to append
+(rec) !diffie-hellman-group-exchange-sha256 -- kex algorithm to change (increase modulus size to 3072 bits or larger)
+(rec) -aes128-cbc                           -- enc algorithm to remove
+(rec) -aes256-cbc                           -- enc algorithm to remove
+(rec) -curve25519-sha256                    -- kex algorithm to remove
+(rec) -curve25519-sha256@libssh.org         -- kex algorithm to remove
+(rec) -diffie-hellman-group14-sha256        -- kex algorithm to remove
+(rec) -diffie-hellman-group16-sha512        -- kex algorithm to remove
+(rec) -diffie-hellman-group18-sha512        -- kex algorithm to remove
+(rec) -hmac-sha2-256                        -- mac algorithm to remove
+(rec) -hmac-sha2-512                        -- mac algorithm to remove
+(rec) -umac-128@openssh.com                 -- mac algorithm to remove
+
+# additional info
+(nfo) For hardening guides on common OSes, a built-in list can be viewed with --list-hardening-guides, or an online list can be found at: <https://www.ssh-audit.com/hardening_guides.html>
+(nfo) Be aware that, while this target properly supports the strict key exchange method (via the kex-strict-?-v00@openssh.com marker) needed to protect against the Terrapin vulnerability (CVE-2023-48795), all peers must also support this feature as well, otherwise the vulnerability will still be present.  The following algorithms would allow an unpatched peer to create vulnerable SSH channels with this target: chacha20-poly1305@openssh.com, aes256-cbc, aes128-cbc, 3des-cbc, hmac-sha2-256-etm@openssh.com, hmac-sha1-etm@openssh.com, umac-128-etm@openssh.com, hmac-sha2-512-etm@openssh.com.  If any CBC ciphers are in this list, you may remove them while leaving the *-etm@openssh.com MACs in place; these MACs are fine while paired with non-CBC cipher types.
+(nfo) Potentially insufficient connection throttling detected, resulting in possible vulnerability to the DHEat DoS attack (CVE-2002-20001).  38 connections were created in 0.349 seconds, or 108.8 conns/sec; server must respond with a rate less than 20.0 conns/sec per IPv4/IPv6 source address to be considered safe.  For rate-throttling options, please see <https://www.ssh-audit.com/hardening_guides.html>.  Be aware that using 'PerSourceMaxStartups 1' properly protects the server from this attack, but will cause this test to yield a false positive.  Suppress this test and message with the --skip-rate-test option.
